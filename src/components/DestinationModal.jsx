@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MapPin, CheckCircle2, ShieldCheck, Compass, Star, ChevronLeft, ChevronRight, Hotel, Waves, Plane } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import HotelModal from './HotelModal';
 
 // Standard 4-photo gallery mapping for each destination ID (Cover, 5-Star Hotel, Sea/Nature, Sightseeing/Travel)
 const destinationGalleries = {
@@ -64,6 +65,7 @@ const destinationGalleries = {
 const DestinationModal = ({ destination, onClose }) => {
   const { t } = useLanguage();
   const [activeImgIndex, setActiveImgIndex] = useState(0);
+  const [isHotelModalOpen, setIsHotelModalOpen] = useState(false);
 
   if (!destination) return null;
 
@@ -213,15 +215,21 @@ const DestinationModal = ({ destination, onClose }) => {
 
           {/* Highlights Grid: 5-Star Hotel, Sea/Resorts, Excursions */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="p-3.5 rounded-2xl bg-[#F6F9FD] border border-slate-100 flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 text-[#1565FF] flex items-center justify-center shrink-0">
+            <button 
+              onClick={() => setIsHotelModalOpen(true)}
+              className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 flex items-center space-x-3 text-left hover:shadow-md transition-all group cursor-pointer"
+            >
+              <div className="w-10 h-10 rounded-xl bg-[#082A5B] text-[#D4AF37] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                 <Hotel className="w-5 h-5" />
               </div>
               <div>
-                <h5 className="text-xs font-bold text-[#0B1630]">5★ Otellar & Kurort</h5>
-                <p className="text-[11px] text-slate-500">Hashamatli xonalar</p>
+                <h5 className="text-xs font-bold text-[#0B1630] group-hover:text-[#1565FF] transition-colors flex items-center gap-1">
+                  <span>5★ Otellar & Kurort</span>
+                  <span className="text-[10px] text-[#D4AF37]">→</span>
+                </h5>
+                <p className="text-[11px] text-slate-500">Batafsil ko‘rish</p>
               </div>
-            </div>
+            </button>
 
             <div className="p-3.5 rounded-2xl bg-[#F6F9FD] border border-slate-100 flex items-center space-x-3">
               <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 text-[#4FC3F7] flex items-center justify-center shrink-0">
@@ -274,14 +282,35 @@ const DestinationModal = ({ destination, onClose }) => {
           <div className="pt-2 flex items-center justify-between border-t border-slate-100 text-xs text-slate-400">
             <span>{t.destinations.modalFooter}</span>
             
-            <button
-              onClick={onClose}
-              className="px-6 py-2.5 bg-[#082A5B] hover:bg-[#1565FF] text-white font-bold rounded-xl transition-colors shadow-md"
-            >
-              {t.destinations.modalClose}
-            </button>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setIsHotelModalOpen(true)}
+                className="px-4 py-2.5 bg-blue-50 text-[#1565FF] hover:bg-blue-100 font-bold rounded-xl transition-colors border border-blue-200 flex items-center space-x-1.5"
+              >
+                <Hotel className="w-4 h-4" />
+                <span>Otellarni ko‘rish</span>
+              </button>
+
+              <button
+                onClick={onClose}
+                className="px-6 py-2.5 bg-[#082A5B] hover:bg-[#1565FF] text-white font-bold rounded-xl transition-colors shadow-md"
+              >
+                {t.destinations.modalClose}
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Hotel Explorer Modal embedded */}
+        <AnimatePresence>
+          {isHotelModalOpen && (
+            <HotelModal
+              isOpen={isHotelModalOpen}
+              onClose={() => setIsHotelModalOpen(false)}
+              initialCityId={destination.id === 'turkey' ? 'antalya' : (destination.id === 'azerbaijan' ? 'azerbaijan' : destination.id)}
+            />
+          )}
+        </AnimatePresence>
       </motion.div>
     </div>
   );

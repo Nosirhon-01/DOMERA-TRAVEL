@@ -92,22 +92,25 @@ const Contact = () => {
           {/* 4 Compact Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {t.contact.channels.map((item, index) => (
-              <motion.div
+              <motion.a
                 key={index}
+                href={item.link}
+                target={item.link.startsWith('http') ? '_blank' : '_self'}
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="bg-white rounded-2xl p-6 text-center border border-slate-200/70 shadow-sm opacity-90 hover:opacity-100 transition-opacity"
+                className="bg-white rounded-2xl p-6 text-center border border-slate-200/70 shadow-sm opacity-90 hover:opacity-100 hover:shadow-md hover:border-[#1565FF]/30 transition-all group block"
               >
-                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-50 group-hover:scale-110 transition-all duration-300">
                   {channelIcons[index]}
                 </div>
                 <h3 className="font-bold text-[#0B1630] text-base mb-1">{item.title}</h3>
-                <span className="inline-block px-3 py-1 bg-slate-100 text-slate-500 text-xs font-semibold rounded-full">
-                  {t.contact.soon}
+                <span className="inline-block text-[#1565FF] text-sm font-semibold truncate w-full group-hover:text-[#082A5B] transition-colors">
+                  {item.value}
                 </span>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
 

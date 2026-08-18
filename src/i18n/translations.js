@@ -239,13 +239,13 @@ export const fontTranslations = {
     contact: {
       badge: 'ALOQA',
       title: 'Biz bilan bog‘laning',
-      subtitle: 'Rasmiy aloqa kanallarimiz tez orada ishga tushiriladi va faoliyat boshlanishi bilan bu yerda e’lon qilinadi.',
-      soon: 'Tez orada',
+      subtitle: 'Biz bilan quyidagi rasmiy aloqa kanallari orqali bog‘lanishingiz mumkin.',
+      soon: 'Faol',
       channels: [
-        { title: 'Instagram' },
-        { title: 'Telegram' },
-        { title: 'Elektron pochta' },
-        { title: 'Telefon aloqasi' }
+        { title: 'Instagram', value: '@domera.travel', link: 'https://www.instagram.com/domera.travel?igsh=emFvdHIxcHQ0MXVk' },
+        { title: 'Telegram', value: '@domeratravel', link: 'https://t.me/domeratravel' },
+        { title: 'Elektron pochta', value: 'domera.travel@gmail.com', link: 'mailto:domera.travel@gmail.com' },
+        { title: 'Telefon aloqasi', value: '+998 70 011 09 09', link: 'tel:+998700110909' }
       ]
     },
     footer: {
@@ -500,13 +500,13 @@ export const fontTranslations = {
     contact: {
       badge: 'КОНТАКТЫ',
       title: 'Свяжитесь с нами',
-      subtitle: 'Наши официальные каналы связи скоро будут запущены и опубликованы здесь.',
-      soon: 'Скоро',
+      subtitle: 'Вы можете связаться с нами по следующим официальным каналам связи.',
+      soon: 'Активно',
       channels: [
-        { title: 'Instagram' },
-        { title: 'Telegram' },
-        { title: 'Электронная почта' },
-        { title: 'Телефонная связь' }
+        { title: 'Instagram', value: '@domera.travel', link: 'https://www.instagram.com/domera.travel?igsh=emFvdHIxcHQ0MXVk' },
+        { title: 'Telegram', value: '@domeratravel', link: 'https://t.me/domeratravel' },
+        { title: 'Электронная почта', value: 'domera.travel@gmail.com', link: 'mailto:domera.travel@gmail.com' },
+        { title: 'Телефонная связь', value: '+998 70 011 09 09', link: 'tel:+998700110909' }
       ]
     },
     footer: {
@@ -761,13 +761,13 @@ export const fontTranslations = {
     contact: {
       badge: 'CONTACT',
       title: 'Get in Touch',
-      subtitle: 'Our official communication channels will launch soon and will be published here.',
-      soon: 'Coming Soon',
+      subtitle: 'You can contact us via our official communication channels below.',
+      soon: 'Active',
       channels: [
-        { title: 'Instagram' },
-        { title: 'Telegram' },
-        { title: 'Email' },
-        { title: 'Phone Support' }
+        { title: 'Instagram', value: '@domera.travel', link: 'https://www.instagram.com/domera.travel?igsh=emFvdHIxcHQ0MXVk' },
+        { title: 'Telegram', value: '@domeratravel', link: 'https://t.me/domeratravel' },
+        { title: 'Email', value: 'domera.travel@gmail.com', link: 'mailto:domera.travel@gmail.com' },
+        { title: 'Phone Support', value: '+998 70 011 09 09', link: 'tel:+998700110909' }
       ]
     },
     footer: {
@@ -916,13 +916,13 @@ export const fontTranslations = {
   contact: {
     badge: 'АЛОҚА',
     title: 'Биз билан боғланинг',
-    subtitle: 'Расмий алоқа каналларимиз тез орада ишга туширилади ва фаолият бошланиши билан бу ерда эълон қилинади.',
-    soon: 'Тез орада',
+    subtitle: 'Биз билан қуйидаги расмий алоқа каналлари орқали боғланишингиз мумкин.',
+    soon: 'Фаол',
     channels: [
-      { title: 'Instagram' },
-      { title: 'Telegram' },
-      { title: 'Электрон почта' },
-      { title: 'Телефон алоқаси' }
+      { title: 'Instagram', value: '@domera.travel', link: 'https://www.instagram.com/domera.travel?igsh=emFvdHIxcHQ0MXVk' },
+      { title: 'Telegram', value: '@domeratravel', link: 'https://t.me/domeratravel' },
+      { title: 'Электрон почта', value: 'domera.travel@gmail.com', link: 'mailto:domera.travel@gmail.com' },
+      { title: 'Телефон алоқаси', value: '+998 70 011 09 09', link: 'tel:+998700110909' }
     ]
   },
   footer: {

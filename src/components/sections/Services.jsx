@@ -1,10 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Compass, Building2, Car, Map, HelpCircle, ShieldCheck, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import HotelModal from '../HotelModal';
 
 const Services = () => {
   const { t } = useLanguage();
+  const [isHotelModalOpen, setIsHotelModalOpen] = useState(false);
+  const [selectedInitialCity, setSelectedInitialCity] = useState('phuket');
 
   const serviceIcons = [
     <Compass className="w-6 h-6 text-[#1565FF]" />,
@@ -14,6 +17,18 @@ const Services = () => {
     <HelpCircle className="w-6 h-6 text-[#1565FF]" />,
     <ShieldCheck className="w-6 h-6 text-[#1565FF]" />
   ];
+
+  const handleServiceClick = (index) => {
+    // Index 1 corresponds to "Mehmonxona" / "Hotel Accommodations"
+    if (index === 1 || index === 3) {
+      setSelectedInitialCity('phuket');
+      setIsHotelModalOpen(true);
+    } else {
+      // Smooth scroll to contact for other service inquiries
+      const el = document.getElementById('contact');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="services" className="section-padding bg-[#F6F9FD]">
@@ -60,7 +75,8 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[230px] sm:h-[250px]"
+              onClick={() => handleServiceClick(index)}
+              className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[230px] sm:h-[250px] cursor-pointer"
             >
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#F6F9FD] border border-slate-100 flex items-center justify-center mb-5 group-hover:bg-[#082A5B] group-hover:text-white transition-colors duration-300">
@@ -77,7 +93,7 @@ const Services = () => {
               </div>
 
               <div className="pt-2 flex items-center justify-between text-xs font-bold text-[#082A5B] group-hover:text-[#1565FF] transition-colors">
-                <span>{t.services.more}</span>
+                <span>{index === 1 ? 'Shaharlar & Mehmonxonalarni ko‘rish →' : t.services.more}</span>
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-[#D4AF37]" />
               </div>
             </motion.div>
@@ -85,8 +101,20 @@ const Services = () => {
         </div>
 
       </div>
+
+      {/* Hotel Explorer Modal */}
+      <AnimatePresence>
+        {isHotelModalOpen && (
+          <HotelModal
+            isOpen={isHotelModalOpen}
+            onClose={() => setIsHotelModalOpen(false)}
+            initialCityId={selectedInitialCity}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 };
 
 export default Services;
+
