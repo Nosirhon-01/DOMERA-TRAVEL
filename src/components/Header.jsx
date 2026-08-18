@@ -21,7 +21,8 @@ const Header = () => {
   const languages = [
     { code: 'UZ', label: 'O‘zbekcha', flag: '🇺🇿' },
     { code: 'RU', label: 'Русский', flag: '🇷🇺' },
-    { code: 'EN', label: 'English', flag: '🇬🇧' }
+    { code: 'EN', label: 'English', flag: '🇬🇧' },
+    { code: 'LOT', label: 'Lotin', flag: '🇺🇿' }
   ];
 
   const handleSelectLang = (code) => {
@@ -40,25 +41,21 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 h-[76px] flex items-center ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 h-[78px] flex items-center ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_4px_25px_rgba(8,42,91,0.06)]' 
-          : 'bg-gradient-to-b from-[#082A5B]/80 via-[#082A5B]/40 to-transparent backdrop-blur-sm'
+          : 'bg-gradient-to-b from-[#082A5B]/90 via-[#082A5B]/50 to-transparent backdrop-blur-sm'
       }`}
     >
       <div className="site-container w-full flex justify-between items-center">
-        {/* Brand Logo Identity */}
+        {/* Brand Logo Identity featuring uploaded logo image */}
         <a href="#home" className="flex items-center space-x-3 group">
-          <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
-            isScrolled 
-              ? 'bg-[#082A5B] text-[#D4AF37] shadow-md group-hover:bg-[#1565FF]' 
-              : 'bg-white/10 backdrop-blur-md border border-white/20 text-[#D4AF37] group-hover:bg-white/20'
-          }`}>
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="9" className="opacity-40" />
-              <path d="M3.6 9h16.8M3.6 15h16.8" className="opacity-40" />
-              <path d="M12 3C16.9706 3 21 7.02944 21 12" stroke="#D4AF37" strokeWidth="2.5" strokeLinecap="round" />
-            </svg>
+          <div className="w-11 h-11 rounded-xl bg-white p-1 border border-slate-200/80 shadow-md group-hover:scale-105 transition-transform overflow-hidden flex items-center justify-center shrink-0">
+            <img 
+              src="/domera_logo.png" 
+              alt="DOMERA TRAVEL Logo" 
+              className="w-full h-full object-cover rounded-lg"
+            />
           </div>
 
           <div className="flex flex-col">
@@ -67,8 +64,8 @@ const Header = () => {
             }`}>
               DOMERA <span className="text-[#D4AF37] font-semibold">TRAVEL</span>
             </span>
-            <span className={`text-[10px] uppercase tracking-[0.2em] font-medium transition-colors duration-300 mt-0.5 ${
-              isScrolled ? 'text-slate-400' : 'text-white/60'
+            <span className={`text-[10px] uppercase tracking-[0.2em] font-medium transition-colors duration-300 mt-1 ${
+              isScrolled ? 'text-slate-400' : 'text-white/70'
             }`}>
               {t.nav.subtitle}
             </span>
@@ -172,7 +169,7 @@ const Header = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="absolute top-[76px] left-0 w-full bg-[#082A5B]/98 backdrop-blur-2xl border-b border-white/10 shadow-2xl overflow-hidden lg:hidden"
+            className="absolute top-[78px] left-0 w-full bg-[#082A5B]/98 backdrop-blur-2xl border-b border-white/10 shadow-2xl overflow-hidden lg:hidden"
           >
             <div className="site-container py-6 space-y-3">
               {navLinks.map((link, idx) => (

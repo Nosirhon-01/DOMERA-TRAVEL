@@ -11,15 +11,15 @@ const Footer = () => {
         {/* Top Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           
-          {/* Brand Info */}
+          {/* Brand Info with Custom Brand Logo */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 text-[#D4AF37] flex items-center justify-center">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="9" className="opacity-40" />
-                  <path d="M3.6 9h16.8M3.6 15h16.8" className="opacity-40" />
-                  <path d="M12 3C16.9706 3 21 7.02944 21 12" stroke="#D4AF37" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
+              <div className="w-11 h-11 rounded-xl bg-white p-1 border border-white/20 overflow-hidden flex items-center justify-center shrink-0 shadow-md">
+                <img 
+                  src="/domera_logo.png" 
+                  alt="DOMERA TRAVEL Logo" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
               <span className="text-xl font-extrabold text-white">
                 DOMERA <span className="text-[#D4AF37] font-semibold">TRAVEL</span>
