@@ -21,8 +21,8 @@ const Header = () => {
   const languages = [
     { code: 'UZ', label: 'O‘zbekcha', flag: '🇺🇿' },
     { code: 'RU', label: 'Русский', flag: '🇷🇺' },
-    { code: 'EN', label: 'English', flag: '🇬🇧' },
-    { code: 'LOT', label: 'Lotin', flag: '🇺🇿' }
+    { code: 'EN', label: 'English', flag: 'en' },
+    { code: 'LOT', label: 'Кирилл', flag: 'уз' }
   ];
 
   const handleSelectLang = (code) => {
@@ -103,7 +103,7 @@ const Header = () => {
               }`}
             >
               <Globe className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>{lang}</span>
+              <span>{lang === 'LOT' ? 'УЗ' : lang}</span>
               <ChevronDown className="w-3 h-3 opacity-60" />
             </button>
 
