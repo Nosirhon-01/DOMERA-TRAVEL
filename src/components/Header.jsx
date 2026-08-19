@@ -22,7 +22,7 @@ const Header = () => {
     { code: 'UZ', label: 'O‘zbekcha', flag: '🇺🇿' },
     { code: 'RU', label: 'Русский', flag: '🇷🇺' },
     { code: 'EN', label: 'English', flag: 'en' },
-    { code: 'LOT', label: 'Кирилл', flag: 'уз' }
+    { code: 'LOT', label: 'Кирилл', flag: 'Уз' }
   ];
 
   const handleSelectLang = (code) => {
@@ -198,7 +198,7 @@ const Header = () => {
                       }`}
                     >
                       <span>{l.flag}</span>
-                      <span>{l.code}</span>
+                      <span>{l.code === 'LOT' ? 'Кирилл' : l.code}</span>
                     </button>
                   ))}
                 </div>
