@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, ArrowRight } from 'lucide-react';
+import { Send, Mail, Phone, ArrowRight, Clock, MapPin, ExternalLink, Map } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 
 const InstagramIcon = ({ className }) => (
@@ -13,6 +13,7 @@ const InstagramIcon = ({ className }) => (
 
 const Contact = () => {
   const { t } = useLanguage();
+  const yandexMapsUrl = "https://yandex.uz/maps/10335/tashkent/?ll=69.222912%2C41.290669&mode=routes&rtext=41.290664%2C69.222907~41.290681%2C69.222916&rtt=mt&ruri=~&z=21";
 
   const channelIcons = [
     <InstagramIcon className="w-5 h-5 text-[#1565FF]" />,
@@ -61,17 +62,17 @@ const Contact = () => {
             transition={{ delay: 0.2 }}
           >
             <a 
-              href="#destinations" 
+              href="#booking" 
               className="inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-[#1565FF] to-[#082A5B] hover:from-[#082A5B] hover:to-[#1565FF] text-white rounded-full font-bold text-base shadow-xl shadow-blue-950/40 border border-white/20 transition-all duration-300 transform hover:-translate-y-0.5"
             >
-              <span>{t.cta.btn}</span>
+              <span>Bron qilish</span>
               <ArrowRight className="w-5 h-5 text-[#D4AF37]" />
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* 2. Compact Contact Placeholders Section */}
+      {/* 2. Contact & Location Information Section */}
       <section id="contact" className="section-padding bg-[#F6F9FD]">
         <div className="site-container">
           
@@ -89,7 +90,111 @@ const Contact = () => {
             </p>
           </div>
 
-          {/* 4 Compact Cards */}
+          {/* Working Hours & Location Featured Info Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
+            {/* Working Hours Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm flex items-start space-x-5 hover:shadow-md transition-all"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-[#D4AF37] flex items-center justify-center shrink-0">
+                <Clock className="w-7 h-7" />
+              </div>
+              <div>
+                <span className="text-xs font-extrabold text-[#1565FF] uppercase tracking-wider block mb-1">
+                  Ish vaqti
+                </span>
+                <h3 className="text-xl font-extrabold text-[#0B1630] mb-1">
+                  Har kuni
+                </h3>
+                <p className="text-base font-bold text-[#D4AF37]">
+                  11:00 — 18:00
+                </p>
+                <p className="text-xs text-slate-500 mt-2">
+                  Dam olish kunlarisiz doimiy mijozlarga ko‘mak
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Manzil & Yandex Maps Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm flex items-start justify-between space-x-4 hover:shadow-md transition-all"
+            >
+              <div className="flex items-start space-x-5">
+                <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 text-[#1565FF] flex items-center justify-center shrink-0">
+                  <MapPin className="w-7 h-7" />
+                </div>
+                <div>
+                  <span className="text-xs font-extrabold text-[#1565FF] uppercase tracking-wider block mb-1">
+                    Manzil
+                  </span>
+                  <h3 className="text-xl font-extrabold text-[#0B1630] mb-1">
+                    Toshkent shahri
+                  </h3>
+                  <p className="text-xs text-slate-500 mb-4">
+                    O‘zbekiston Respublikasi
+                  </p>
+                  
+                  <a
+                    href={yandexMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-[#082A5B] to-[#1565FF] hover:from-[#1565FF] hover:to-[#082A5B] text-white font-bold text-xs rounded-xl shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
+                  >
+                    <Map className="w-4 h-4 text-[#D4AF37]" />
+                    <span>Yandex Maps’da ochish</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Interactive Map Visual Presentation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto mb-12 rounded-3xl overflow-hidden shadow-lg border border-slate-200 relative group"
+          >
+            <div className="relative h-64 sm:h-72 w-full bg-slate-900 overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2070&auto=format&fit=crop" 
+                alt="Tashkent Map Route" 
+                className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#082A5B]/90 via-[#082A5B]/60 to-transparent flex flex-col justify-center p-8 text-white">
+                <span className="px-3.5 py-1 rounded-full bg-[#D4AF37] text-[#082A5B] text-xs font-extrabold uppercase tracking-wider w-fit mb-3">
+                  YANDEX MAPS MARSHRUTI
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold mb-2">
+                  DOMERA TRAVEL Offisi
+                </h3>
+                <p className="text-sm text-slate-200 max-w-md mb-6">
+                  Toshkent shahri markaziy marshruti va qulay transport aloqasi
+                </p>
+
+                <a
+                  href={yandexMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-[#1565FF] hover:bg-white hover:text-[#082A5B] text-white font-bold text-xs rounded-xl shadow-lg transition-all w-fit flex items-center space-x-2 border border-white/20"
+                >
+                  <MapPin className="w-4 h-4 text-[#D4AF37]" />
+                  <span>Yandex Maps’da Marshrutni Ochish</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 4 Official Contact Communication Channels */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {t.contact.channels.map((item, index) => (
               <motion.a

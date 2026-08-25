@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MapPin, CheckCircle2, ShieldCheck, Compass, Star, ChevronLeft, ChevronRight, Hotel, Waves, Plane } from 'lucide-react';
+import { X, MapPin, CheckCircle2, ShieldCheck, Compass, Star, ChevronLeft, ChevronRight, Hotel, Waves, Plane, Send } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import HotelModal from './HotelModal';
+import BookingModal from './BookingModal';
 
 // Standard 4-photo gallery mapping for each destination ID (Cover, 5-Star Hotel, Sea/Nature, Sightseeing/Travel)
 const destinationGalleries = {
@@ -292,8 +293,16 @@ const DestinationModal = ({ destination, onClose }) => {
               </button>
 
               <button
+                onClick={() => setIsBookingOpen(true)}
+                className="px-5 py-2.5 bg-gradient-to-r from-[#1565FF] to-[#082A5B] hover:from-[#082A5B] hover:to-[#1565FF] text-white font-bold rounded-xl transition-all shadow-md flex items-center space-x-1.5"
+              >
+                <Send className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <span>Bron qilish</span>
+              </button>
+
+              <button
                 onClick={onClose}
-                className="px-6 py-2.5 bg-[#082A5B] hover:bg-[#1565FF] text-white font-bold rounded-xl transition-colors shadow-md"
+                className="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors"
               >
                 {t.destinations.modalClose}
               </button>
@@ -308,6 +317,18 @@ const DestinationModal = ({ destination, onClose }) => {
               isOpen={isHotelModalOpen}
               onClose={() => setIsHotelModalOpen(false)}
               initialCityId={destination.id === 'turkey' ? 'antalya' : (destination.id === 'azerbaijan' ? 'azerbaijan' : destination.id)}
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Booking Modal embedded */}
+        <AnimatePresence>
+          {isBookingOpen && (
+            <BookingModal
+              isOpen={isBookingOpen}
+              onClose={() => setIsBookingOpen(false)}
+              initialDestination={destination.name}
+              initialCategory="Tashqi turizm"
             />
           )}
         </AnimatePresence>

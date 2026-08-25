@@ -3,7 +3,7 @@ import { Globe, Menu, X, ChevronRight, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
-const Header = () => {
+const Header = ({ onOpenBooking }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
@@ -35,9 +35,21 @@ const Header = () => {
     { label: t.nav.about, href: '#about' },
     { label: t.nav.destinations, href: '#destinations' },
     { label: t.nav.services, href: '#services' },
-    { label: t.nav.uzbekistan, href: '#uzbekistan' },
+    { label: t.nav.booking, href: '#booking', isBooking: true },
     { label: t.nav.contact, href: '#contact' },
   ];
+
+  const handleNavClick = (e, link) => {
+    if (link.isBooking) {
+      if (onOpenBooking) {
+        onOpenBooking();
+      }
+      const el = document.getElementById('booking');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header 
@@ -78,6 +90,7 @@ const Header = () => {
             <a 
               key={idx}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link)}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 relative group ${
                 isScrolled 
                   ? 'text-slate-700 hover:text-[#1565FF] hover:bg-slate-100/80' 
@@ -176,7 +189,10 @@ const Header = () => {
                 <a
                   key={idx}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    setIsMobileMenuOpen(false);
+                    handleNavClick(e, link);
+                  }}
                   className="flex items-center justify-between text-white text-base font-semibold px-4 py-3 rounded-xl hover:bg-white/10 transition-colors border-b border-white/5"
                 >
                   <span>{link.label}</span>
