@@ -76,9 +76,9 @@ const Footer = () => {
               ALOQA
             </h4>
             <div className="space-y-3 text-xs md:text-sm text-slate-300/90">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-[#1565FF] shrink-0" />
-                <span>Toshkent shahri</span>
+              <div className="flex items-start space-x-2">
+                <MapPin className="w-4 h-4 text-[#1565FF] shrink-0 mt-0.5" />
+                <span className="text-left text-xs leading-snug">Katta Chilonzor-1 MFY, 1 mavzesi,<br/>16-uy, 20-xonadon</span>
               </div>
 
               <div className="flex items-start space-x-2">

@@ -134,11 +134,11 @@ const Contact = () => {
                   <span className="text-xs font-extrabold text-[#1565FF] uppercase tracking-wider block mb-1">
                     Manzil
                   </span>
-                  <h3 className="text-xl font-extrabold text-[#0B1630] mb-1">
-                    Toshkent shahri
+                  <h3 className="text-sm font-extrabold text-[#0B1630] mb-1">
+                    Katta Chilonzor-1 MFY, 1 mavzesi
                   </h3>
                   <p className="text-xs text-slate-500 mb-4">
-                    O‘zbekiston Respublikasi
+                    16-uy, 20-xonadon
                   </p>
                   
                   <a
