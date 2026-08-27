@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://domeratravel.uz/sitemap.xml
