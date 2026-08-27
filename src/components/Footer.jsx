@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="site-container">
         
         {/* Top Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           
           {/* Brand Info with Custom Brand Logo */}
           <div className="space-y-4">
@@ -99,6 +99,27 @@ const Footer = () => {
                   <MapPin className="w-3.5 h-3.5 text-[#D4AF37]" />
                   <span>Yandex Maps</span>
                   <ExternalLink className="w-3 h-3 opacity-70" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 4: RAHNABIRIMIZ */}
+          <div className="space-y-3">
+            <h4 className="text-sm font-extrabold uppercase tracking-wider text-[#D4AF37]">
+              RAHNABIRIMIZ
+            </h4>
+            <div className="space-y-2 text-xs md:text-sm text-slate-300/90">
+              <p className="font-semibold text-white leading-snug">
+                Mavlyanov Maksudbek Raximberganovich
+              </p>
+              <div className="flex items-center space-x-2 pt-1">
+                <span className="text-slate-400 text-[11px] uppercase font-bold">Raqam:</span>
+                <a
+                  href="tel:+998700110909"
+                  className="text-[#D4AF37] font-bold hover:text-white transition-colors"
+                >
+                  +998 70 011 09 09
                 </a>
               </div>
             </div>
